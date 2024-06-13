@@ -27,3 +27,12 @@ This script does some rudimentary correctness checking, and will ensure that The
 
 A Glyphs port of [Italic Bowtie](https://github.com/FontBureau/fbOpenTools/tree/master/ItalicBowtie) originally developed for Robofont by Cyrus Highsmith and DJR.
 
+
+## Make Angle 90 Degrees
+
+Makes the angle at the selected corner point 90 degrees. Moves the selected point along the longer of the two neighboring segments to find the 90 degree point.
+
+## Rotate Glyph 180
+
+Rotate the current glyph 180°. Created to assign a shortcut.
+
