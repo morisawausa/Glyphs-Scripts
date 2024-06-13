@@ -23,7 +23,7 @@ class HarmonizeRatios( object ):
 		self.w = vanilla.FloatingWindow(
 			( windowWidth, windowHeight ), # default self, window size
 			"Harmonize Ratios", # window title
-			minSize = ( 200, 300 ), # minimum size (for resizing)
+			minSize = ( 200, 200 ), # minimum size (for resizing)
 			maxSize = ( windowWidth + windowWidthResize, windowHeight + windowHeightResize ), # maximum size (for resizing)
 			autosaveName = "com.motsuka.HarmonizeRatios.mainwindow" # stores last window position and size
 		)
