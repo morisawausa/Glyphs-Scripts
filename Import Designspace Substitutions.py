@@ -12,8 +12,8 @@ from functools import reduce
 # This script does some rudimentary correctness checking, and will ensure that
 # The designspace file you load has the same number of axes, with the same names,
 # in the same order as in the Glyphs open font.
-__doc__="""Opens a GUI prompt that allows you to update instance substitution rules
-in the open font with the substitutions in a chosen .designspace file.
+__doc__="""(GUI) Allows you to update instance substitution rules
+in the open font with the substitutions in a chosen .designspace file. 
 """
 
 import os.path

@@ -23,7 +23,11 @@ This script opens a GUI which allows you to specify a filepath to a `.designspac
 
 This script does some rudimentary correctness checking, and will ensure that The designspace file you load has the same number of axes, with the same names, in the same order as in the Glyphs open font.
 
+Useful for importing substitutions back into the Glyphs file for instance exports after setting up substiutions using our [VF Visualizer tool](https://github.com/morisawausa/_vfvisualizer).
+
 ## Italic Bowtie
+
+Italicizes the selected glyph(s), while setting up “bowtie” guides in the edit view to show the relationship of a font’s vertical and slanted sidebearings.
 
 A Glyphs port of [Italic Bowtie](https://github.com/FontBureau/fbOpenTools/tree/master/ItalicBowtie) originally developed for Robofont by Cyrus Highsmith and DJR.
 
@@ -35,4 +39,7 @@ Makes the angle at the selected corner point 90 degrees. Moves the selected poin
 ## Rotate Glyph 180
 
 Rotate the current glyph 180°. Created to assign a shortcut.
+
+## Show Spacing Strings
+Inserts the selected glyph within its spacing string in a new line. Adapted to Occupant Fonts’ character set from Wei Huang’s [Spacing scripts](https://github.com/weiweihuanghuang/wei-glyphs-scripts/tree/master).
 

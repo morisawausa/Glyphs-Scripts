@@ -1,7 +1,7 @@
 #MenuTitle: Italic Bowtie...
 # -*- coding: utf-8 -*-
 __doc__="""
-(GUI) Italicizes the selected glyph(s), while setting up "bowtie" guides in the edit view to show the relationship of a font’s vertical and slanted sidebearings.
+(GUI) Italicizes the selected glyph(s), while setting up “bowtie” guides in the edit view to show the relationship of a font’s vertical and slanted sidebearings. Glyphs port of Italic Bowtie available at fontbureau/fbopentools.
 """
 
 import vanilla
