@@ -24,7 +24,8 @@ def getContext(glyph):
 	# print glyph
 	glyphName = "/"+glyph.name
 	
-	# print(glyphName, glyph.case, glyph.subCategory)
+	print(glyphName, glyph.case, glyph.subCategory)
+
 	# xheight
 	if "xhght" in glyph.name:
 		if script(glyph, "cyrillic"):
@@ -33,6 +34,30 @@ def getContext(glyph):
 			return u"""/eta.xhght/eta.xhght {0} /eta.xhght/omicron.xhght/eta.xhght/omicron.xhght {0} /omicron.xhght/omicron.xhght""".format(glyphName)
 		else:
 			return u"""/n.xhght/n.xhght {0} /n.xhght/o.xhght/n.xhght/o.xhght {0} /o.xhght/o.xhght""".format(glyphName)
+
+	# tabular numbers and symbols
+	elif (glyph.name.endswith(".tf")):
+		return u"""/zero.tf/zero.tf{0} /zero.tf/one.tf/zero.tf/one.tf{0} /one.tf/one.tf""".format(glyphName)
+
+	# old style numbers and symbols
+	elif (glyph.name.endswith(".osf")):
+		return u"""/zero.osf/zero.osf{0} /zero.osf/one.osf/zero.osf/one.osf{0} /one.osf/one.osf""".format(glyphName)
+
+	# small numbers
+	elif (subCat(glyph, "Fraction") and "dnom" in glyph.name):
+		return u"""/zero.dnom/zero.dnom{0} /zero.dnom/one.dnom/zero.dnom/one.dnom{0} /one.dnom/one.dnom""".format(glyphName)
+
+	# small numbers
+	elif (subCat(glyph, "Fraction") and "numr" in glyph.name):
+		return u"""/zero.numr/zero.numr{0} /zero.numr/one.numr/zero.numr/one.numr{0} /one.numr/one.numr""".format(glyphName)
+
+	# numbers
+	elif subCat(glyph, "Decimal Digit"):
+		return u"""00{0} 00{0} 11{0} 1101""".format(glyphName)
+
+	# currency
+	elif subCat(glyph, "Currency") :
+		return u"""00{0} 00{0} 11{0} 1101""".format(glyphName)
 
 	# Greek
 	elif script(glyph, "greek") and (subCat(glyph, "Smallcaps") or case(glyph, 3)) :
@@ -44,8 +69,7 @@ def getContext(glyph):
 	elif script(glyph, "greek") and ( ( subCat(glyph, "Lowercase") or case(glyph, 2) ) or case(glyph, "lower") ):
 		return u"""ηη{0} ηοηο{0} οο""".format(glyphName)
 
-	# cyrllic
-
+	# Cyrllic
 	elif script(glyph, "cyrillic") and (subCat(glyph, "Smallcaps") or case(glyph, 3)) :
 		return u"""/en-cy.sc/en-cy.sc {0} /en-cy.sc/o-cy.sc/en-cy.sc/o-cy.sc {0} /o-cy.sc/o-cy.sc""".format(glyphName)
 
@@ -73,25 +97,6 @@ def getContext(glyph):
 	elif ( subCat(glyph, "Lowercase") or case(glyph, 2) ):
 		return u"""nn{0} nono{0} oo""".format(glyphName)
 
-	# old style numbers
-	elif (subCat(glyph, "Decimal Digit") and "osf" in glyph.name):
-		return u"""/zero.osf/zero.osf{0} /zero.osf/one.osf/zero.osf/one.osf{0} /one.osf/one.osf""".format(glyphName)
-
-	# small numbers
-	elif (subCat(glyph, "Fraction") and "dnom" in glyph.name):
-		return u"""/zero.dnom/zero.dnom{0} /zero.dnom/one.dnom/zero.dnom/one.dnom{0} /one.dnom/one.dnom""".format(glyphName)
-
-	# small numbers
-	elif (subCat(glyph, "Fraction") and "numr" in glyph.name):
-		return u"""/zero.numr/zero.numr{0} /zero.numr/one.numr/zero.numr/one.numr{0} /one.numr/one.numr""".format(glyphName)
-
-	# numbers
-	elif subCat(glyph, "Decimal Digit"):
-		return u"""00{0} 00{0} 11{0} 1101""".format(glyphName)
-
-	# currency
-	elif subCat(glyph, "Currency") :
-		return u"""00{0} 00{0} 11{0} 1101""".format(glyphName)
 
 	# punctuation
 	elif cat(glyph, "Punctuation"):
