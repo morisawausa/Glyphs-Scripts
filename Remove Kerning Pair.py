@@ -15,7 +15,7 @@ def get_layers():
 
 def check_pair_type(l,r):
 	r_exception = r.previousKerningExceptionForLayer_direction_(l, LTR)
-	l_exception = r.previousKerningExceptionForLayer_direction_(r, LTR)
+	l_exception = l.nextKerningExceptionForLayer_direction_(r, LTR)
 
 	right_key = r.parent.leftKerningKey
 	left_key = l.parent.rightKerningKey
