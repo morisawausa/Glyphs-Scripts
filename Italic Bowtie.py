@@ -43,7 +43,6 @@ class ItalicBowtie( object ):
 
 		view = self.getView()
 		Glyphs.defaults["com.motsuka.ItalicBowtie.selectOrigin"] = view.selectOrigin.get()
-
 		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxPaths"] = view.checkboxPaths.get()
 		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxAnchors"] = view.checkboxAnchors.get()
 		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxComponents"] = view.checkboxComponents.get()
@@ -56,19 +55,18 @@ class ItalicBowtie( object ):
 
 	def loadPreferences( self ):
 		view = self.getView()
-		#register defaults
-		Glyphs.defaults["com.motsuka.ItalicBowtie.selectOrigin"] = 0
-		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxPaths"] = True
-		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxAnchors"] = True
-		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxComponents"] = False
-
-		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxDrawBowtie"] = False
-		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxMakeRef"] = False
-		Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxCommitAngle"] = False
-
 		try:
-			view.selectOrigin.set( Glyphs.defaults["com.motsuka.ItalicBowtie.selectOrigin"] )
+			#register defaults
+			Glyphs.registerDefault("com.motsuka.ItalicBowtie.selectOrigin", 0)
+			Glyphs.registerDefault("com.motsuka.ItalicBowtie.checkboxPaths", True)
+			Glyphs.registerDefault("com.motsuka.ItalicBowtie.checkboxAnchors", True)
+			Glyphs.registerDefault("com.motsuka.ItalicBowtie.checkboxComponents", False)
 
+			Glyphs.registerDefault("com.motsuka.ItalicBowtie.checkboxDrawBowtie", False)
+			Glyphs.registerDefault("com.motsuka.ItalicBowtie.checkboxMakeRef", False)
+			Glyphs.registerDefault("com.motsuka.ItalicBowtie.checkboxCommitAngle", False)
+
+			view.selectOrigin.set( Glyphs.defaults["com.motsuka.ItalicBowtie.selectOrigin"] )
 			view.checkboxPaths.set( Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxPaths"] )
 			view.checkboxAnchors.set( Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxAnchors"] )
 			view.checkboxComponents.set( Glyphs.defaults["com.motsuka.ItalicBowtie.checkboxComponents"] )
@@ -283,16 +281,13 @@ class ItalicBowtie( object ):
 				self.italicAngle = 0
 
 			self.origin = self.listOrigins[view.selectOrigin.get()]
-
 			self.setOffset(self.origin[1])
 
 			self.paths = bool(view.checkboxPaths.get())
 			self.anchors = bool(view.checkboxAnchors.get())
 			self.components = bool(view.checkboxComponents.get())
-
 			self.drawBowtie = bool(view.checkboxDrawBowtie.get())
 			self.makeRef = bool(view.checkboxMakeRef.get())
-
 			self.angleUpdate = bool(view.checkboxCommitAngle.get())
 
 		except Exception as e:
